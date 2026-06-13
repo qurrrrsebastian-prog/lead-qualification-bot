@@ -1,16 +1,16 @@
-"""Lead Qualification Bot with Gemini. Author: Avatar Putra Sigit"""
+"""Lead Qualification Bot with Groq (Llama 3.3 70B). Author: Avatar Putra Sigit"""
 import os
 import sys
 import pandas as pd
 import streamlit as st
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 
-def get_llm() -> ChatGoogleGenerativeAI:
-    key = os.environ.get("GEMINI_API_KEY")
+def get_llm() -> ChatGroq:
+    key = os.environ.get("GROQ_API_KEY")
     if not key:
-        st.error("GEMINI_API_KEY not found.")
+        st.error("GROQ_API_KEY not found.")
         sys.exit(1)
-    return ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=key, temperature=0.2)
+    return ChatGroq(model="llama-3.3-70b-versatile", api_key=key, temperature=0.2)
 
 def load_leads() -> pd.DataFrame:
     csv = os.path.join(os.path.dirname(__file__), "data", "leads.csv")
@@ -18,7 +18,7 @@ def load_leads() -> pd.DataFrame:
         os.system(f"{sys.executable} data/generator.py")
     return pd.read_csv(csv)
 
-def qualify_lead(row: pd.Series, llm: ChatGoogleGenerativeAI) -> dict:
+def qualify_lead(row: pd.Series, llm: ChatGroq) -> dict:
     """AI scoring + draft email."""
     prompt = f"""You are a B2B sales expert for property maintenance services (rope access, glass cleaning, maintenance).
 Score this lead HOT/WARM/COLD and write a short follow-up email draft in Indonesian.
@@ -45,7 +45,7 @@ EMAIL_DRAFT: [3 sentences in Indonesian]"""
 
 def main() -> None:
     st.set_page_config(page_title="Lead Qualification Bot", layout="wide")
-    st.title("🎯 Lead Qualification Bot — Gemini Powered")
+    st.title("🎯 Lead Qualification Bot — Groq Powered")
     st.markdown("AI scoring untuk lead B2B PT RKARI + draft email follow-up")
 
     df = load_leads()

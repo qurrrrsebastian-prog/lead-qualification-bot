@@ -1,11 +1,11 @@
-# Lead Qualification Bot — Gemini Powered
+# Lead Qualification Bot — Groq Powered
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Python](https://img.shields.io/badge/Python-3.13-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red)
-![Gemini](https://img.shields.io/badge/Gemini-1.5_Flash-green)
+![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-orange)
 
 ## 📌 Deskripsi
-AI-powered lead qualification untuk bisnis B2B property maintenance. Input data lead → AI scoring (HOT/WARM/COLD) + draft email follow-up otomatis.
+AI-powered lead qualification untuk bisnis B2B property maintenance. Input data lead → AI (Groq Llama 3.3 70B) scoring (HOT/WARM/COLD) + draft email follow-up otomatis.
 
 ## 🎯 Fitur
 - 50 dummy leads realistis
@@ -14,12 +14,13 @@ AI-powered lead qualification untuk bisnis B2B property maintenance. Input data 
 - Streamlit UI untuk review semua leads
 
 ## 🛠️ Tech Stack
-- Python, Streamlit, LangChain, Gemini API, Pandas
+- Python, Streamlit, LangChain, Groq (Llama 3.3 70B), Pandas
 
 ## 🚀 Cara Menjalankan
 
 ```bash
-$env:GEMINI_API_KEY="AQ....YOUR_KEY_HERE...."
+# Ambil API key gratis di https://console.groq.com/keys
+$env:GROQ_API_KEY="gsk_....YOUR_KEY_HERE...."
 pip install -r requirements.txt
 python data/generator.py
 streamlit run app.py
