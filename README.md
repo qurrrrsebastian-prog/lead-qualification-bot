@@ -1,36 +1,70 @@
-# Lead Qualification Bot — Groq Powered
+# Project #14 — AI Lead Qualification Bot
 
-![Python](https://img.shields.io/badge/Python-3.13-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red)
-![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-orange)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=chainlink&logoColor=white" />
+  <img src="https://img.shields.io/badge/Gemini%20API-4285F4?style=flat&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat" />
+</p>
 
-## 📌 Deskripsi
-AI-powered lead qualification untuk bisnis B2B property maintenance. Input data lead → AI (Groq Llama 3.3 70B) scoring (HOT/WARM/COLD) + draft email follow-up otomatis.
+> AI scoring lead B2B otomatis: HOT / WARM / COLD. Input data lead, dapatkan score + draft email follow-up profesional.
 
-## 🎯 Fitur
-- 50 dummy leads realistis
-- AI scoring berdasarkan industry, contract value, engagement, source
-- Auto-generate draft email follow-up bahasa Indonesia
-- Streamlit UI untuk review semua leads
+---
 
-## 🛠️ Tech Stack
-- Python, Streamlit, LangChain, Groq (Llama 3.3 70B), Pandas
+## Demo Langsung
 
-## 🚀 Cara Menjalankan
+[![Deploy to Streamlit Cloud](https://img.shields.io/badge/Deploy-Streamlit%20Cloud-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io/deploy?repository=qurrrrsebastian-prog/lead-qualification-bot)
+
+**Tech Stack:** `LangChain` · `Google Gemini API` · `Pandas` · `Streamlit`
+
+---
+
+## Fitur
+
+| Fitur | Status |
+|-------|--------|
+| Lead scoring (HOT/WARM/COLD) | ✅ |
+| Auto-generate follow-up email | ✅ |
+| CSV upload batch processing | ✅ |
+| Download hasil CSV | ✅ |
+| Kriteria scoring customizable | ✅ |
+| Tema gelap AVA purple | ✅ |
+
+---
+
+## Cara Menjalankan
 
 ```bash
-# Ambil API key gratis di https://console.groq.com/keys
-$env:GROQ_API_KEY="gsk_....YOUR_KEY_HERE...."
+git clone https://github.com/qurrrrsebastian-prog/lead-qualification-bot.git
+cd lead-qualification-bot
 pip install -r requirements.txt
-python data/generator.py
+$env:GEMINI_API_KEY="your_api_key_here"
 streamlit run app.py
 ```
 
-## 📊 Key Insight
-- Lead dari Google Ads dengan contract >50jt = 70% HOT
-- Lead >30 hari tanpa follow-up = auto COLD
-- AI draft email mengurangi waktu sales cycle 40%
+## Deploy ke Streamlit Cloud (GRATIS)
 
-## 👤 Author
-[Avatar Putra Sigit](https://linkedin.com/in/avatarputrasigit) — Founder & CEO @AVA.Group
-[GitHub](https://github.com/qurrrrsebastian-prog)
+1. [share.streamlit.io](https://share.streamlit.io) → Login GitHub
+2. **New app** → Pilih repo ini
+3. Tambahkan secret: `GEMINI_API_KEY`
+4. **Deploy**
+
+---
+
+## Struktur Project
+
+```
+lead-qualification-bot/
+├── app.py              # Main Streamlit app
+├── requirements.txt    # Dependencies
+├── data/               # Sample lead data
+├── .streamlit/
+│   └── config.toml    # AVA purple branding
+├── .gitignore
+└── LICENSE            # MIT License
+```
+
+---
+
+**Dibuat oleh:** [Avatar Putra Sigit](https://github.com/qurrrrsebastian-prog) · Founder @AVA.Group
